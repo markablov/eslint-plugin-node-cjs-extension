@@ -30,21 +30,50 @@ Add `node-cjs-extension` to the plugins section of your `.eslintrc` configuratio
 }
 ```
 
+## Rule
 
-Then configure the rules you want to use under the rules section.
+Main goal is to enforce the style of file extensions in `require()` declarations
+
+### Options
 
 ```json
 {
     "rules": {
-        "node-cjs-extension/rule-name": 2
+        "node-cjs-extension/require-cjs-extension": ["error", "always" or "never"]
     }
 }
 ```
 
-## Supported Rules
+`always` - to force usage of file extensions (option is set to that by default)
 
-* Fill in provided rules here
+Correct code:
+```
+/* eslint node-cjs-extension/require-cjs-extension: ["error", "always"] */
 
+require("./path/to/a/file.js");
+```
+
+Incorrect code:
+```
+/* eslint node-cjs-extension/require-cjs-extension: ["error", "always"] */
+
+require("./path/to/a/file");
+```
+
+`never` - to force skipping file extensions
+
+```
+/* eslint node-cjs-extension/require-cjs-extension: ["error", "never"] */
+
+require("./path/to/a/file");
+```
+
+Incorrect code:
+```
+/* eslint node-cjs-extension/require-cjs-extension: ["error", "never"] */
+
+require("./path/to/a/file.js");
+```
 
 
 

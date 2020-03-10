@@ -37,5 +37,8 @@
   "engines": {
     "node": ">=8"
   },
+  "jest": {
+    "testMatch": ["**/test/**/*.js"]
+  },
   "license": "ISC"
 }
